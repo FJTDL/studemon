@@ -25,24 +25,39 @@ class Student:
 class Teacher:
 
   def __init__(self, experience, special, size):
-    self.exp = experience
+    self.experience = experience
     self.special = special
-    self.team = size
+    self.size = size
 
 
 def start():
   valid = False
   while not valid:
+      global size
+      global experience
+      global special
       size = int(input("How large is your team?"))
-      xp = int(input("How long have you held your position?"))
-      status = input("Are you a dean, HOD or deputy principle?").lower()
-      if status == "yes":
-        status = True
-      if type(size) == int and type(xp) == int and type(status) == str:
+      experience = int(input("How long have you held your position?"))
+      special = input("Are you a dean, HOD or deputy principle? yes/no. ").lower()
+      if special == "yes":
+        special = True
+      elif special == "no":
+        special = False
+      if type(size) == int and type(experience) == int and type(special) == bool:
         valid = True
       else:
         start()
-    
+
+
+
+ 
 start()
-#if 4 > size > 0:
- #     player1 = Teacher(xp, status, size)
+player1 = Teacher(experience, special, size)
+if player1.special == True:
+  pos = "HEIGHTENED"
+else:
+  pos = "STANDARD"
+print(f"PLAYER ONE CREATED, WITH {player1.experience} YEARS OF EXPERIENCE, A {pos} POSITION, AND A TEAM OF {player1.size}.\n")
+start()
+player2 = Teacher(experience, special, size)
+print(f"PLAYER TWO CREATED, WITH {player2.experience} YEARS OF EXPERIENCE, A {pos} POSITION, AND A TEAM OF {player2.size}.\n")
