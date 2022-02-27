@@ -68,15 +68,15 @@ class Teacher:
     self.team.append(student)
   
   def create_student(self):
-    year = int(input("Student year:"))
-    smarts = int(input("Academic ability:"))
-    pillar = int(input("Involvement: "))
-    status = input("Leadership position? yes/no.").lower()
-    if status == "yes":
-      status = True
-    else:
-      status = False
     while len(self.team) < self.size:
+      year = int(input("Student year:"))
+      smarts = int(input("Academic ability:"))
+      pillar = int(input("Involvement: "))
+      status = input("Leadership position? yes/no.").lower()
+      if status == "yes":
+        status = True
+      else:
+        status = False
       if len(self.team) == 0:
         self.student1 = Student(year, smarts, pillar, status)
         self.team.append(self.student1)
@@ -112,5 +112,5 @@ print("PLAYER ONE, ADD YOUR STUDENTS")
 for i in range(0, player1.size):
   player1.create_student()
 
-for i in range (0, len(player1.team)):
-  print(player1.team[i])
+for i in player1.team:
+  print(i)
